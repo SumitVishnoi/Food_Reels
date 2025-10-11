@@ -1,0 +1,133 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Bottom nav common styles */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  padding: 0.6rem 0;
+  z-index: 1000;
+  border-radius: 0;
+}
+
+.logout-button {
+  background-color: #ff4d4d; 
+  color: white;
+  border: none; /* No border */
+  padding: 8px 16px; /* Some padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Nav icons */
+.nav_icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: #e0e0e0;
+}
+
+.nav_icon:hover {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+/* Active nav icon */
+.nav_icon.active {
+  color: var(--accent); /* your theme accent color */
+}
+
+/* Mobile view */
+.mobile-view {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+/* Desktop & Tablet view */
+.desktop-view {
+  display: none;
+  align-items: center;
+  position: relative;
+}
+
+/* Dropdown menu for three-dot icon */
+.dropdown-menu {
+  position: absolute;
+  top: 60px; /* above nav */
+  right: 5px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  z-index: 1001;
+  min-width: 100px;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Mobile max-width */
+@media (max-width: 420px) {
+  .bottom-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 0;
+    background: rgba(31, 31, 31, 0.428); 
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.203);
+    backdrop-filter: blur(10px);
+  }
+  .desktop-view {
+    display: none;
+  }
+  .mobile-view {
+    display: flex;
+  }
+}
+
+/* Tablet & Laptop min-width */
+@media (min-width: 421px) {
+  .bottom-nav {
+    max-width: 400px;
+    top: 0%;
+    height: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mobile-view {
+    display: none;
+  }
+  .desktop-view {
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+  }
+}
+

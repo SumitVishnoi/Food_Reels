@@ -1,0 +1,19 @@
+.logo_div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.logo_div h1 {
+    width: 30px;
+    font-size: 1.5rem;
+    padding: 1rem;
+    line-height: 1;
+}
+
+@media (min-width: 400px) {
+    .logo_div h1 {
+        color: white;
+    }
+}

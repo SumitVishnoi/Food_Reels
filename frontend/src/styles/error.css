@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.error_page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+.error_card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(6px);
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(232, 230, 230, 0.849);
+  border: 1px solid var(--border);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error_img img{
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.error_button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.error_button:hover {
+  background: #1d4ed8;
+}

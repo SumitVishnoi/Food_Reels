@@ -1,0 +1,78 @@
+@import './variables.css';
+
+/* Mobile-first Create Food form styles */
+.create-food-page {
+  min-height: 100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding: 1rem;
+  /* background: var(--bg); */
+  background-color: black;
+}
+
+.create-card {
+  width:100%;
+  max-width:720px;
+  /* background: var(--card-bg, var(--card-bg)); */
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(232, 230, 230, 0.849);
+}
+
+.form-row { display:flex; flex-direction:column; gap:0.45rem; margin-bottom:0.85rem }
+.form-row label { font-size:0.95rem; color:var(--muted) }
+.form-row input[type="text"], .form-row textarea {
+  width:100%;
+  font-size:1rem;
+  padding:0.65rem 0.75rem;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--input-bg);
+  color:var(--text);
+}
+
+/* Custom uploader */
+.uploader {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.8rem;
+  padding:0.9rem;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border:1px dashed var(--border);
+  cursor:pointer;
+}
+.uploader:hover { box-shadow: var(--shadow) }
+.uploader svg { width:36px; height:36px; flex:0 0 36px }
+.uploader .uploader-text { color:var(--muted); font-weight:600 }
+.uploader .file-name { color:var(--text); font-weight:700 }
+.hidden-file { display:none }
+
+.video-preview {
+  width:100%;
+  height:220px;
+  /* background:linear-gradient(180deg, #000, #111); */
+  background-color: #0f172a;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:600;
+  margin-bottom:0.8rem;
+  overflow:hidden;
+}
+.video-preview video { width:100%; height:100%; object-fit:cover }
+
+.actions { display:flex; gap:0.6rem; justify-content:flex-end; margin-top:0.25rem }
+.btn { padding:0.6rem 0.9rem; border-radius:10px; font-weight:700; border:none; cursor:pointer }
+.btn.primary { background:var(--accent); color:var(--accent-contrast) }
+.btn.ghost { background:transparent; color:var(--text); border:1px solid var(--border) }
+
+/* Desktop tweaks */
+@media (min-width:720px) {
+  .create-card { padding:1.4rem }
+  .video-preview { height:360px }
+}

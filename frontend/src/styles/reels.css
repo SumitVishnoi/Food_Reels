@@ -1,0 +1,307 @@
+@import "./variables.css";
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.data {
+  position: relative;
+}
+
+.reels-container {
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reel-item {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.video-div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* Comments overlay */
+.comments-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2rem;
+  overflow-y: auto;
+}
+
+.comments-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 5rem;
+}
+
+.close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: white;
+  background: rgba(255, 0, 0, 0.8);
+  border-radius: 50%;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10000;
+  pointer-events: auto;
+  padding: 0.3rem;
+}
+
+.comment-head {
+  color: white;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+/* Ensure comment box and list visible inside fixed overlay */
+.add-comment,
+.comments-section {
+  position: static;
+  transform: none;
+  max-width: 600px;
+  width: 90%;
+}
+
+.add-comment {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-comment input {
+  flex: 1;
+  padding: 1rem 1rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+.add-comment button {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.comment-username {
+  background-color: rgba(0, 0, 0, 0.674);
+  margin: 0.3rem 0;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+}
+
+/* 📱 Mobile (default): fullscreen reels */
+@media (max-width: 768px) {
+  .video-div {
+    width: 100%;
+    height: 100%;
+  }
+  .reel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.comments-container {
+  padding: 1rem;
+}
+
+/* 💻 Tablet & Laptop: fixed width like Instagram reels */
+@media (min-width: 769px) {
+  .video-div {
+    width: 400px; 
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .reel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Keep overlays inside video bounds */
+  .feature,
+  .reel-overlay {
+    max-width: 400px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* Features & overlay styles */
+.feature {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.feature .icon {
+  width: 2rem;
+  height: 2rem;
+  color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
+.feature .inc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+}
+
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  z-index: 3;
+  pointer-events: none;
+  /* background-color: blue; */
+}
+
+.reel-meta {
+  color: var(--accent-contrast);
+  text-shadow: 0 3px 12px rgba(2, 6, 23, 0.6);
+  pointer-events: auto;
+  max-width: 72%;
+}
+
+.reel-meta .title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.reel-meta .handle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.reel-meta .desc {
+  font-size: 1.1rem;
+  color: white;
+  opacity: 0.95;
+  line-height: 1.15rem;
+  margin-bottom: 0.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reel-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.visit-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 700;
+  pointer-events: auto;
+}
+
+.secondary-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--accent-contrast);
+  background: rgba(0, 0, 0, 0.32);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  pointer-events: auto;
+}
+
+.reel-top-hint {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--accent-contrast);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+@media (min-width: 421px) {
+  .reel-overlay {
+    bottom: 10px;
+  }
+}
+
+

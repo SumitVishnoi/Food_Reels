@@ -1,0 +1,33 @@
+/* Centralized theme variables. Uses system preference for light/dark mode. */
+:root {
+  --bg: #f6f8fa;
+  --card-bg: #ffffff;
+  --text: #0f1724;
+  --muted: #6b7280;
+  --accent: #2564eb98;
+  --accent-contrast: #ffffff;
+  --input-bg: #f8fafc;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+  --max-width: 420px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #071026;
+    --card-bg: #0b1220;
+    --text: #e6eef6;
+    --muted: #9aa6b2;
+    --accent: #1c75e1;
+    --accent-contrast: #07203a;
+    --input-bg: #071428;
+    --border: #12304a;
+    --shadow: 0 8px 24px rgba(2,6,23,0.7);
+  }
+}
+
+/* small accessibility tweak */
+@media (prefers-reduced-motion: reduce) {
+  :root { --transition-duration: 0s; }
+}
