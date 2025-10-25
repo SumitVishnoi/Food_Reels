@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/reels.css";
 import ReelFeed from "../components/ReelFeed";
-import AuthContext from "../context/AuthContext";
+import { AuthDataContext } from "../context/AuthContext";
 
 const Save = () => {
   const [videos, setVideos] = useState([]);
-  const {serverUrl} = useContext(AuthContext)
+  const { serverUrl } = useContext(AuthDataContext);
 
   useEffect(() => {
     axios
@@ -30,7 +30,7 @@ const Save = () => {
   const removeSaved = async (item) => {
     try {
       await axios.post(
-        "http://localhost:3000/api/food/save",
+        `${serverUrl}/api/food/save`,
         { foodId: item._id },
         { withCredentials: true }
       );
