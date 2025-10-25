@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/reels.css";
 import ReelFeed from "../components/ReelFeed";
+import AuthContext from "../context/AuthContext";
 
 const Save = () => {
   const [videos, setVideos] = useState([]);
+  const {serverUrl} = useContext(AuthContext)
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/food/savedfood", {
+      .get(`${serverUrl}/api/food/savedfood`, {
         withCredentials: true,
       })
       .then((response) => {
