@@ -48,7 +48,7 @@ const UserProfile = () => {
 
     <ul className='profile_list'>
       <li className='profile_list_item' onClick={()=> navigate("/")}><GoHome /> Home</li>
-      <li className='profile_list_item' onClick={()=> navigate("/saved")}><IoBookmarkOutline /> Saved</li>
+      <li className='profile_list_item' onClick={()=> navigate("/save")}><IoBookmarkOutline /> Save</li>
     </ul>
     </div>
     </div>
